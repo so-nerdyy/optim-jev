@@ -63,5 +63,5 @@ def usd(value: float) -> str:
 
 PRICE_NOTE = (
     "Prices: Claude list prices per 1M tokens (opus $5/$25, sonnet $3/$15, haiku $1/$5; cache read 0.1x, "
-    "write 1.25x), Jev $0.04 input / $0 output. Edit core/pricing.py if yours differ."
+    "write 1.25x), Jev $0.05 input / $0 output. Edit core/pricing.py if yours differ."
 )

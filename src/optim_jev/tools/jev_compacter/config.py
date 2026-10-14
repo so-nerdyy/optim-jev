@@ -4,8 +4,8 @@ import math
 from dataclasses import dataclass, fields
 from typing import Any, Mapping
 
-SYSTEM_ONE_URL = "https://api.typesafe.ai/v1/systemone"
-DEFAULT_MODEL = "jev-latest"
+SYSTEM_ONE_URL = "https://api.subq.ai/v1/systemone"
+DEFAULT_MODEL = "subq-snap-preview"
 
 _AT_LEAST_ONE = {"max_state_tokens", "max_request_tokens"}
 

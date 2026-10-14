@@ -8,10 +8,10 @@
   },
   "license": "MIT",
   "userConfig": {
-    "typesafe_api_key": {
+    "subq_api_key": {
       "type": "string",
-      "title": "TypeSafe API key",
-      "description": "Key for the Jev API. Leave empty to use the TYPESAFE_API_KEY environment variable.",
+      "title": "SubQ API key",
+      "description": "Key for the SubQ API. Leave empty to use the SUBQ_API_KEY environment variable.",
       "sensitive": true
     },
     "python": {

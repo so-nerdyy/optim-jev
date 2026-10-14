@@ -30,7 +30,7 @@ Defined in [`src/optim_jev/core/pricing.py`](../src/optim_jev/core/pricing.py). 
 | opus | $5.00 | $25.00 |
 | sonnet | $3.00 | $15.00 |
 | haiku | $1.00 | $5.00 |
-| Jev | $0.04 | $0.00 |
+| Jev | $0.05 | $0.00 |
 
 The model is matched by family name inside the model id, so `claude-haiku-5-5` is priced as haiku. Cached input is priced from the input rate:
 

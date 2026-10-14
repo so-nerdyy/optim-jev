@@ -38,9 +38,9 @@ remain available when buttons do not fit. The desktop layout is unchanged.
 
 Use any one of these, checked in this order:
 
-1. The plugin option **TypeSafe API key** in `/config`
-2. The environment variable `TYPESAFE_API_KEY`
-3. `TYPESAFE_API_KEY` in the `env` block of your Claude Code settings
+1. The plugin option **SubQ API key** in `/config`
+2. The environment variable `SUBQ_API_KEY`
+3. `SUBQ_API_KEY` in the `env` block of your Claude Code settings
 
 The key is passed to the Python tools through their environment, never written to disk or logs. A `.env` file in your project is **not** read.
 
@@ -116,6 +116,6 @@ Everything goes into `.optim-jev/`, created on first use. It ignores itself in g
 |---|---|
 | `hooks module did not load` | reload the plugin; the message names the file and line |
 | `python exited 1` / `not found` | set the `python` option to a Python 3.10+ path |
-| `TYPESAFE_API_KEY is not configured` | set the key (above) |
+| `SUBQ_API_KEY is not configured` | set the key (above) |
 | compaction always falls back to the summary | `/jev-compact stats`: Jev may be failing, or freeing too little |
 | a routed write is refused | the message names the rule in `rules.json`; ask Claude to change it if it's wrong |

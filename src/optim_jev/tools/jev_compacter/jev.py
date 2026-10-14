@@ -12,7 +12,7 @@ from .config import DEFAULT_MODEL, SYSTEM_ONE_URL
 from .types import JevCompactionError, JevQuestions
 
 # Jev's price in USD per million tokens.
-INPUT_USD_PER_MTOK = 0.04
+INPUT_USD_PER_MTOK = 0.05
 OUTPUT_USD_PER_MTOK = 0.0
 
 
@@ -37,7 +37,7 @@ def noul_answer(answers: Mapping[str, Any], name: str) -> float:
 
 
 class JevClient:
-    """Asks Jev over HTTP; the key defaults to TYPESAFE_API_KEY."""
+    """Asks Jev over HTTP; the key defaults to SUBQ_API_KEY."""
 
     def __init__(
         self,
@@ -46,7 +46,7 @@ class JevClient:
         base_url: str = SYSTEM_ONE_URL,
         timeout: float = 60.0,
     ) -> None:
-        self._api_key = api_key or os.environ.get("TYPESAFE_API_KEY", "")
+        self._api_key = api_key or os.environ.get("SUBQ_API_KEY", "")
         self._model = model
         self._base_url = base_url
         self._timeout = timeout
@@ -88,7 +88,7 @@ class JevClient:
 
     def ask(self, state: Mapping[str, Any], questions: JevQuestions) -> dict[str, Any]:
         if not self._api_key:
-            raise JevCompactionError("TYPESAFE_API_KEY is not configured")
+            raise JevCompactionError("SUBQ_API_KEY is not configured")
         try:
             parsed = self._post(state, questions)
         except JevCompactionError:

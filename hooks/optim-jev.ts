@@ -67,7 +67,7 @@ type CompactAnswer = {
 
 type CheckAnswer = { level: Level | null };
 
-const API_KEY_OPTION = 'typesafe_api_key';
+const API_KEY_OPTION = 'subq_api_key';
 const PYTHON_TIMEOUT_MS = 180_000;
 const DEFAULT_HARD_PERCENT = 85;
 
@@ -83,11 +83,11 @@ function notify($: Engine, text: string, timeoutMs = 15_000): void {
 async function apiKey($: Engine, options: PluginOptions): Promise<string | undefined> {
   const configured = options[API_KEY_OPTION];
   if (typeof configured === 'string' && configured) return configured;
-  const fromEnv = await $.env.get('TYPESAFE_API_KEY');
+  const fromEnv = await $.env.get('SUBQ_API_KEY');
   if (fromEnv) return fromEnv;
   const env = (await $.settings.read())['env'];
   const fromSettings =
-    env && typeof env === 'object' ? (env as Record<string, unknown>)['TYPESAFE_API_KEY'] : undefined;
+    env && typeof env === 'object' ? (env as Record<string, unknown>)['SUBQ_API_KEY'] : undefined;
   return typeof fromSettings === 'string' && fromSettings ? fromSettings : undefined;
 }
 
@@ -108,7 +108,7 @@ async function runTool<T>(
   const python = typeof options['python'] === 'string' && options['python'] ? options['python'] : 'python';
   const env: Record<string, string> = { PYTHONPATH: `${$.plugin.root}/src`, PYTHONIOENCODING: 'utf-8' };
   const key = await apiKey($, options);
-  if (key) env['TYPESAFE_API_KEY'] = key;
+  if (key) env['SUBQ_API_KEY'] = key;
   const { exitCode, stdout, stderr } = await $.process.run([python, '-m', module, mode], {
     env,
     stdin: JSON.stringify(request),

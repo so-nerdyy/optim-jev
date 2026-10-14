@@ -26,7 +26,7 @@ python -m optim_jev.tools.jev_router.tool spawn
   stdout: {...answer}
 ```
 
-- `PYTHONPATH` is set to the plugin's `src/`, and the API key travels as the `TYPESAFE_API_KEY` environment variable, never in stdin.
+- `PYTHONPATH` is set to the plugin's `src/`, and the API key travels as the `SUBQ_API_KEY` environment variable, never in stdin.
 - A non-zero exit becomes an error in the hook, carrying the last 3 lines of stderr. Each hook decides its own fallback (usually: do what Claude Code would have done without the plugin).
 - Options reach Python as the plugin's `userConfig`; each tool reads only keys with its own prefix (`jev_compacter_`, `jev_router_`, `jev_skills_`).
 

@@ -398,5 +398,5 @@ def compact_messages(
     config: CompactionConfig = CompactionConfig(),
     api_key: str | None = None,
 ) -> CompactResult:
-    """compact() over HTTP; the key defaults to TYPESAFE_API_KEY."""
+    """compact() over HTTP; the key defaults to SUBQ_API_KEY."""
     return compact(messages, JevClient(api_key, config.model, config.base_url), config)
